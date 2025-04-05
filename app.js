@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
   session({
-    secret: "your-secret-key",
+    secret: "dIh1r[596*.L",
     resave: false,
     saveUninitialized: true,
   })
@@ -63,13 +63,13 @@ app.post("/set-availability", async (req, res) => {
       existingAvailability.startTime = startTime;
       existingAvailability.endTime = endTime;
       await existingAvailability.save();
-      return res.json({ message: "Availability updated successfully!" });
+      return res.json({ message: "availability updated successfully!" });
     }
 
     const newAvailability = new Availability({ userId, day, startTime, endTime });
     await newAvailability.save();
 
-    res.json({ message: "Availability saved successfully!" });
+    res.json({ message: "availability saved successfully!" });
   } catch (error) {
     console.error("Error saving availability:", error);
     res.status(500).json({ message: "Error saving availability" });
